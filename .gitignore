@@ -1,0 +1,49 @@
+# --- Unity временные файлы ---
+[L|l]ibrary/
+[T|t]emp/
+[O|o]bj/
+[B|b]uild/
+[B|b]uilds/
+[L|l]ogs/
+[M|m]emoryCaptures/
+
+# --- Удаляемые файлы ассетов (если используются) ---
+/[A|a]ssets/AssetStoreTools*
+
+# --- Автоматически генерируемые файлы решений для IDE ---
+# (Visual Studio, Rider, VS Code)
+/ASL/
+ExportedObj/
+.vs/
+.gradle/
+ExportMesh/
+*.csproj
+*.unityproj
+*.sln
+*.suo
+*.tmp
+*.user
+*.userprefs
+*.pidb
+*.booproj
+*.svntmp
+
+# --- Unity файлы метаданных (не игнорируем .meta, но игнорируем остальное) ---
+# Убедись, что .meta файлы ВКЛЮЧЕНЫ в репозиторий!
+
+# --- ОС специфичные файлы ---
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Icon?
+ehthumbs.db
+Thumbs.db
+
+# --- Crashlytics / Сбор логов ---
+crashlytics-build.properties
+
+# --- Настройки пользователя ---
+.plastic/
+UserSettings/
