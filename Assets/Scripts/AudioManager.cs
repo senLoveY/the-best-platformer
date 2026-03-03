@@ -13,6 +13,8 @@ public class AudioManager : MonoBehaviour
     public AudioClip jumpSound;
     public AudioClip shootSound;
     public AudioClip backgroundMusic;
+    public AudioClip playerDeathSound;
+    public AudioClip playerHurtSound;
 
 
     private void Awake()
@@ -20,26 +22,26 @@ public class AudioManager : MonoBehaviour
         if (instance == null)
         {
             instance = this;
-            DontDestroyOnLoad(gameObject); // Объект "выживет" при смене сцены
+            DontDestroyOnLoad(gameObject); 
         }
         else
         {
-            Destroy(gameObject); // Удаляем дубликат, если он создался на новой сцене
+            Destroy(gameObject); 
         }
     }
 
     public void PlaySFX(AudioClip clip)
     {
-        // PlayOneShot позволяет проигрывать звуки поверх друг друга не прерывая их
+        
         sfxSource.PlayOneShot(clip);
     }
 
     public void ChangeMusic(AudioClip newMusic)
     {
-        musicSource.Stop(); // Останавливаем старую
-        musicSource.clip = newMusic; // Заменяем трек
-        musicSource.loop = false; // Победная музыка не должна зацикливаться
-        musicSource.Play(); // Включаем новую
+        musicSource.Stop(); 
+        musicSource.clip = newMusic; 
+        musicSource.loop = false; 
+        musicSource.Play(); 
     }
 
     public void PlayBackgroundMusic()
