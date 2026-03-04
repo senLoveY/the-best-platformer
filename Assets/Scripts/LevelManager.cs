@@ -7,7 +7,6 @@ public class LevelManager : MonoBehaviour
 
     private void Awake()
     {
-        // Логика Синглтона (чтобы менеджер был только один и не удалялся)
         if (instance == null)
         {
             instance = this;
@@ -19,7 +18,6 @@ public class LevelManager : MonoBehaviour
         }
     }
 
-    // Подписываемся на событие загрузки сцены
     private void OnEnable()
     {
         SceneManager.sceneLoaded += OnSceneLoaded;
@@ -30,10 +28,8 @@ public class LevelManager : MonoBehaviour
         SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 
-    // Этот метод срабатывает АВТОМАТИЧЕСКИ каждый раз, когда загружается любая сцена
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        // Как только сцена загрузилась, проверяем музыку
         if (AudioManager.instance != null)
         {
             AudioManager.instance.PlayBackgroundMusic();
@@ -42,7 +38,6 @@ public class LevelManager : MonoBehaviour
 
     public void Respawn()
     {
-        // Перезагрузка текущей сцены (все враги и игрок появятся заново)
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }

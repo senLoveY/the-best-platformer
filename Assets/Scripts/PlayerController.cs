@@ -11,7 +11,7 @@ public class PlayerController : MonoBehaviour
     public Rigidbody2D playerRb;
     public Transform groundCheck; 
     public Animator anim;
-    public AudioSource sprintAudioSource; // Сюда перетащим новый Audio Source
+    public AudioSource sprintAudioSource; 
 
     [Header("Настройки Прыжка")]
     public float checkRadius = 0.2f; 
@@ -29,16 +29,15 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetButtonDown("Jump") && isGrounded)
         {
-            // Звук прыжка
             if (AudioManager.instance != null) AudioManager.instance.PlaySFX(AudioManager.instance.jumpSound);
             
             playerRb.linearVelocity = new Vector2(playerRb.linearVelocity.x, 0);
             playerRb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
         }
 
-        HandleSprintSound(); // Вызываем наш новый метод
-        UpdateAnimations(); // Обновляем анимации
-        HandleFlip();       // Поворачиваем персонажа
+        HandleSprintSound(); 
+        UpdateAnimations(); 
+        HandleFlip();     
     }
 
     private void FixedUpdate()
@@ -47,14 +46,10 @@ public class PlayerController : MonoBehaviour
         playerRb.linearVelocity = new Vector2(movementX * currentSpeed, playerRb.linearVelocity.y);
     }
     
-    // --- ВСПОМОГАТЕЛЬНЫЕ МЕТОДЫ ---
-    
     void HandleSprintSound()
     {
-        // Если мы бежим с ускорением по земле
         if (Input.GetKey(KeyCode.LeftShift) && isGrounded && Mathf.Abs(movementX) > 0.05f)
         {
-            // И если звук еще не играет - включаем его
             if (!sprintAudioSource.isPlaying)
             {
                 sprintAudioSource.Play();
@@ -62,7 +57,6 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            // В любом другом случае - выключаем
             if (sprintAudioSource.isPlaying)
             {
                 sprintAudioSource.Stop();

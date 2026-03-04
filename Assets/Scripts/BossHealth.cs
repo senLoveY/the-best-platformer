@@ -11,7 +11,7 @@ public class BossHealth : MonoBehaviour
     private Color originalColor;
     private Animator anim;
     private Rigidbody2D rb;
-    public bool isDead = false; // Сделали публичным, чтобы ИИ видел это
+    public bool isDead = false; 
 
     void Start()
     {
@@ -47,28 +47,15 @@ public class BossHealth : MonoBehaviour
     IEnumerator DeathRoutine()
     {
         isDead = true;
-        Debug.Log("БОСС НАЧИНАЕТ УМИРАТЬ...");
-
-        // 1. Включаем анимацию смерти
         anim.SetTrigger("die");
-
-        // 2. Отключаем физику и столкновения, чтобы игрок не бился об "труп"
         GetComponent<Collider2D>().enabled = false;
         rb.linearVelocity = Vector2.zero;
-        rb.bodyType = RigidbodyType2D.Static; // Чтобы босс замер на месте
-
-        // 3. Выключаем скрипт ИИ, чтобы босс не прыгал во время смерти
+        rb.bodyType = RigidbodyType2D.Static; 
         KingSlimeAI ai = GetComponent<KingSlimeAI>();
         if (ai != null) ai.enabled = false;
-
-        // 4. Ждем, пока проиграется анимация (например, 2 секунды)
-        // Можешь настроить это время под длину своей анимации
         yield return new WaitForSeconds(1f);
 
-        // 5. Показываем финиш
         if (finishPoint != null) finishPoint.SetActive(true);
-
-        // 6. Удаляем босса
         Destroy(gameObject);
     }
 }

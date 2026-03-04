@@ -7,7 +7,7 @@ public class Bullet : MonoBehaviour
 
     void Start()
     {
-        Destroy(gameObject, 3f); // Удаляем пулю через 3 сек, если никуда не попала
+        Destroy(gameObject, 3f); 
     }
 
     private void FixedUpdate()
@@ -17,7 +17,6 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        // 1. Проверка на обычного врага
         if (other.CompareTag("Enemy"))
         {
             EnemyHealth enemy = other.GetComponent<EnemyHealth>();
@@ -25,18 +24,16 @@ public class Bullet : MonoBehaviour
             Destroy(gameObject);
         }
         
-        // 2. ПРОВЕРКА НА БОССА
         if (other.CompareTag("Boss"))
         {
             BossHealth boss = other.GetComponent<BossHealth>();
             if (boss != null)
             {
-                boss.TakeDamage(1); // Отнимаем 1 хп
+                boss.TakeDamage(1); 
             }
-            Destroy(gameObject); // Пуля исчезает после попадания
+            Destroy(gameObject); 
         }
 
-        // 3. Если попали в землю (Tilemap)
         if (other.gameObject.layer == LayerMask.NameToLayer("Ground"))
         {
             Destroy(gameObject);

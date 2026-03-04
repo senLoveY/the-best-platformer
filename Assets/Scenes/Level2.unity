@@ -18017,8 +18017,8 @@ MonoBehaviour:
   sfxSource: {fileID: 1647972549}
   musicSource: {fileID: 1647972547}
   victoryMusic: {fileID: 8300000, guid: ea94c3467e1c84925b27364fd918e4c2, type: 3}
-  jumpSound: {fileID: 8300000, guid: eab2a2d5a69d742caaff954d207d2ed9, type: 3}
-  shootSound: {fileID: 8300000, guid: b667935c55cc340f9a38519432f3a04f, type: 3}
+  jumpSound: {fileID: 8300000, guid: 02f1d57831a07a14eab998a16568aa77, type: 3}
+  shootSound: {fileID: 8300000, guid: 86db333d8caf4dd45a8d373e5c1160f4, type: 3}
   backgroundMusic: {fileID: 8300000, guid: f2f4eb9ca99414364962a05b96548807, type: 3}
   playerDeathSound: {fileID: 8300000, guid: e5264ea74469d450b9b5b027b91515cd, type: 3}
   playerHurtSound: {fileID: 8300000, guid: 0137001addba7404dbdf33827e032176, type: 3}
@@ -18035,7 +18035,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 8300000, guid: f2f4eb9ca99414364962a05b96548807, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.1
+  m_Volume: 0.08
   m_Pitch: 1
   Loop: 1
   Mute: 0
